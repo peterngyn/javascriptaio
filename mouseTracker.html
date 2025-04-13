@@ -9,9 +9,15 @@
       function app() {
         const trackingArea = document.getElementById("tracking-area");
         trackingArea.addEventListener("mousemove", onMouseMove);
+        trackingArea.addEventListener("click", onMouseClick);
         function onMouseMove(e) {
-          console.log("moving Mouse");
+          console.log("event:", e);
           setPosition({ x: e.offsetX, y: e.offsetY });
+        }
+        function onMouseClick(e) {
+          const blah = "random developer!!";
+          const clickHeader = document.getElementById("did-you-click");
+          clickHeader.innerHTML = `Yay you clicked ${blah}`;
         }
       }
 
@@ -30,6 +36,7 @@
     </style>
   </head>
   <body>
+    <h1 id="did-you-click">You didnt click</h1>
     <h1 id="current-position"></h1>
     <div id="tracking-area">
       Move your mouse in here. If It's not working, click inside this box and
